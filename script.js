@@ -2,41 +2,37 @@ let cart = [];
 let orders = [];
 let directOrderItems = [];
 
-const categoryFoods = {
-    "Veg Starters": [
-        { name: "Paneer Tikka", price: "₹180" },
-        { name: "Gobi Manchurian", price: "₹150" },
-        { name: "Baby Corn 65", price: "₹160" },
-        { name: "Mushroom 65", price: "₹170" },
-        { name: "Chilli Paneer", price: "₹180" },
-        { name: "Veg Spring Rolls", price: "₹140" }
-    ],
-
+let categoryFoods = {
     "Non-Veg Starters": [
         { name: "Chicken 65", price: "₹220" },
-        { name: "Chicken Tikka", price: "₹240" },
-        { name: "Chicken Wings", price: "₹230" },
-        { name: "Chicken Manchurian", price: "₹220" },
-        { name: "Fish 65", price: "₹220" },
-        { name: "Prawns Tikka", price: "₹240" },
-        { name: "Mutton Seekh", price: "₹230" },
-        { name: "Prawns Manchurian", price: "₹220" }
+        { name: "Chicken Tikka", price: "₹260" },
+        { name: "Chicken Manchurian", price: "₹240" },
+        { name: "Chicken Wings", price: "₹280" },
+        { name: "Mutton Kebab", price: "₹320" }
+    ],
+
+    "Veg Starters": [
+        { name: "Gobi Manchurian", price: "₹180" },
+        { name: "Paneer Tikka", price: "₹220" },
+        { name: "Veg Spring Rolls", price: "₹160" },
+        { name: "Chilli Paneer", price: "₹210" },
+        { name: "Mushroom 65", price: "₹190" }
     ],
 
     "Soups": [
-        { name: "Tomato Soup", price: "₹100" },
-        { name: "Sweet Corn Soup", price: "₹120" },
-        { name: "Hot & Sour Soup", price: "₹130" },
-        { name: "Manchow Soup", price: "₹130" }
+        { name: "Tomato Soup", price: "₹120" },
+        { name: "Sweet Corn Soup", price: "₹140" },
+        { name: "Hot & Sour Soup", price: "₹150" },
+        { name: "Chicken Soup", price: "₹170" },
+        { name: "Manchow Soup", price: "₹160" }
     ],
 
     "Fish & Sea food": [
-        { name: "Fish Fry", price: "₹250" },
-        { name: "Prawn Fry", price: "₹280" },
-        { name: "Fish Curry", price: "₹260" },
-        { name: "Chilli Prawns", price: "₹290" },
-        { name: "Fish Biryani", price: "₹300" },
-        { name: "Prawn Biryani", price: "₹320"},
+        { name: "Fish Fry", price: "₹280" },
+        { name: "Prawn Fry", price: "₹320" },
+        { name: "Fish Curry", price: "₹300" },
+        { name: "Chilli Fish", price: "₹290" },
+        { name: "Garlic Prawns", price: "₹340" }
     ],
 
     "Main Course": [
@@ -45,182 +41,85 @@ const categoryFoods = {
         { name: "Chicken Curry", price: "₹260" },
         { name: "Veg Curry", price: "₹180" },
         { name: "Chicken Biryani", price: "₹280" },
-        { name: "Mushroom Biryani", price: "₹220" },
-        { name: "Veg Biryani", price: "₹200" },
-        { name: "Egg Biryani", price: "₹210" },
         { name: "Mutton Biryani", price: "₹350" },
+        { name: "Veg Biryani", price: "₹200" },
+        { name: "Mushroom Biryani", price: "₹220" }
     ],
 
     "Noodles": [
-        { name: "Veg Noodles", price: "₹150" },
-        { name: "Chicken Noodles", price: "₹190" },
-        { name: "Egg Noodles", price: "₹170" },
-        { name: "Schezwan Noodles", price: "₹180" }
+        { name: "Veg Noodles", price: "₹160" },
+        { name: "Chicken Noodles", price: "₹200" },
+        { name: "Egg Noodles", price: "₹180" },
+        { name: "Schezwan Noodles", price: "₹190" },
+        { name: "Mushroom Noodles", price: "₹180" }
     ],
 
     "Salads": [
         { name: "Green Salad", price: "₹100" },
-        { name: "Fruit Salad", price: "₹120" },
-        { name: "Russian Salad", price: "₹140" }
+        { name: "Fruit Salad", price: "₹130" },
+        { name: "Chicken Salad", price: "₹180" },
+        { name: "Paneer Salad", price: "₹160" },
+        { name: "Russian Salad", price: "₹150" }
     ],
 
     "Desserts": [
         { name: "Gulab Jamun", price: "₹100" },
         { name: "Ice Cream", price: "₹120" },
         { name: "Brownie", price: "₹150" },
-        { name: "Fruit Custard", price: "₹130" }
+        { name: "Fruit Custard", price: "₹130" },
+        { name: "Rasmalai", price: "₹140" }
     ]
 };
 
-function showCategory(category) {
-    let categorySection = document.getElementById("categorySection");
-    let categoryTitle = document.getElementById("categoryTitle");
-    let categoryItems = document.getElementById("categoryItems");
 
-    categoryTitle.innerText = category;
-    categoryItems.innerHTML = "";
+function showCategory(category) {
+    let section = document.getElementById("categorySection");
+    let title = document.getElementById("categoryTitle");
+    let items = document.getElementById("categoryItems");
+
+    title.innerText = category;
+    items.innerHTML = "";
 
     categoryFoods[category].forEach(function(food) {
-        categoryItems.innerHTML += `
+
+        items.innerHTML += `
             <div class="category-item">
+
                 <div>
-                    <p class="category-item-name">${food.name}</p>
-                    <span class="category-item-price">${food.price}</span>
+                    <p class="category-item-name">
+                        ${food.name}
+                    </p>
+
+                    <p class="category-item-price">
+                        ${food.price}
+                    </p>
                 </div>
 
-                <button class="custom-button"
+                <button
+                    class="custom-button category-add-button"
                     onclick="addToCart('${food.name}')">
+
                     Add to Cart
+
                 </button>
+
             </div>
         `;
     });
 
-    categorySection.style.display = "block";
+    section.classList.add("show");
 
-    categorySection.scrollIntoView({
+    section.scrollIntoView({
         behavior: "smooth"
     });
 }
 
+
 function closeCategory() {
-    document.getElementById("categorySection").style.display = "none";
+    document.getElementById("categorySection")
+        .classList.remove("show");
 }
 
-
-function openOrderForm(fromCart = false) {
-    document.getElementById("orderForm").style.display = "flex";
-
-    let foodFields = document.getElementById("directOrderFields");
-    let checkoutOrder = document.getElementById("checkoutOrder");
-
-    if (fromCart) {
-        foodFields.style.display = "none";
-        checkoutOrder.style.display = "block";
-
-        displayCheckoutOrder();
-    } else {
-        foodFields.style.display = "block";
-        checkoutOrder.style.display = "none";
-    }
-}
-
-
-function closeOrderForm() {
-    document.getElementById("orderForm").style.display = "none";
-}
-
-function placeOrder() {
-    let name = document.getElementById("customerName").value;
-    let phone = document.getElementById("customerPhone").value;
-    let address = document.getElementById("customerAddress").value;
-
-    if (name === "" || phone === "" || address === "") {
-        document.getElementById("orderMessage").style.color = "red";
-        document.getElementById("orderMessage").innerText =
-            "Please fill all the details.";
-        return;
-    }
-
-    let orderItems;
-
-    if (cart.length > 0) {
-
-        orderItems = cart.map(function(item) {
-            return item.name + " x " + item.quantity;
-        });
-
-    } else {
-
-        if (directOrderItems.length === 0) {
-            document.getElementById("orderMessage").style.color = "red";
-            document.getElementById("orderMessage").innerText =
-                "Please add at least one item.";
-            return;
-        }
-
-        orderItems = directOrderItems.map(function(item) {
-            return item.name + " x " + item.quantity;
-        });
-    }
-
-    let newOrder = {
-        id: orders.length + 1,
-        items: orderItems,
-        customer: name,
-        phone: phone,
-        address: address,
-        status: "Order Placed"
-    };
-
-    orders.push(newOrder);
-
-    cart = [];
-    directOrderItems = [];
-
-    document.getElementById("cartCount").innerText = "0";
-
-    document.getElementById("orderMessage").style.color = "green";
-    document.getElementById("orderMessage").innerText =
-        "Order Placed Successfully!";
-
-    setTimeout(function() {
-
-        closeOrderForm();
-
-        displayOrders();
-
-        document.getElementById("customerName").value = "";
-        document.getElementById("customerPhone").value = "";
-        document.getElementById("customerAddress").value = "";
-
-        document.getElementById("foodCategory").value = "";
-
-        document.getElementById("foodItem").innerHTML =
-            '<option value="">Select Food Item</option>';
-
-        document.getElementById("foodItem").style.display = "none";
-
-        document.getElementById("quantity").value = "1";
-
-        document.getElementById("directOrderList").innerHTML = "";
-
-        document.getElementById("checkoutOrder").innerHTML = "";
-
-        document.getElementById("orderMessage").innerText = "";
-
-    }, 1500);
-}
-
-function openCart() {
-    document.getElementById("cartModal").style.display = "flex";
-    displayCart();
-}
-
-
-function closeCart() {
-    document.getElementById("cartModal").style.display = "none";
-}
 
 function addToCart(item) {
     let existingItem = cart.find(function(cartItem) {
@@ -237,6 +136,7 @@ function addToCart(item) {
     }
 
     updateCartCount();
+
     alert(item + " added to cart!");
 }
 
@@ -249,6 +149,17 @@ function updateCartCount() {
     });
 
     document.getElementById("cartCount").innerText = totalQuantity;
+}
+
+
+function openCart() {
+    document.getElementById("cartModal").style.display = "flex";
+    displayCart();
+}
+
+
+function closeCart() {
+    document.getElementById("cartModal").style.display = "none";
 }
 
 
@@ -267,6 +178,7 @@ function displayCart() {
         let food = null;
 
         for (let category in categoryFoods) {
+
             let found = categoryFoods[category].find(function(foodItem) {
                 return foodItem.name === item.name;
             });
@@ -351,6 +263,7 @@ function removeFromCart(index) {
     displayCart();
 }
 
+
 function checkout() {
     if (cart.length === 0) {
         alert("Your cart is empty.");
@@ -364,147 +277,49 @@ function checkout() {
     }, 200);
 }
 
-function openMyOrders() {
-    document.getElementById("myOrdersModal").style.display = "flex";
 
-    displayOrders();
-}
+function openOrderForm(fromCart = false) {
+    document.getElementById("orderForm").style.display = "flex";
 
+    let directFields =
+        document.getElementById("directOrderFields");
 
-function closeMyOrders() {
-    document.getElementById("myOrdersModal").style.display = "none";
-}
+    let cartFields =
+        document.getElementById("cartAddItemSection");
 
+    if (fromCart) {
 
-function displayOrders() {
-    let ordersList = document.getElementById("ordersList");
+        directFields.style.display = "none";
+        cartFields.style.display = "block";
 
-    if (orders.length === 0) {
-        ordersList.innerHTML = "<p>No orders placed yet.</p>";
-        return;
+        displayCheckoutOrder();
+
+    } else {
+
+        directFields.style.display = "block";
+        cartFields.style.display = "none";
+
+        displayDirectOrderItems();
     }
-
-    ordersList.innerHTML = "";
-
-    orders.forEach(function(order) {
-        ordersList.innerHTML += `
-            <div class="order-item">
-                <h5>Order #${order.id}</h5>
-
-                <p>
-                    <strong>Items:</strong>
-                    ${order.items.join(", ")}
-                </p>
-
-                ${order.customer ? `
-                    <p>
-                        <strong>Name:</strong>
-                        ${order.customer}
-                    </p>
-
-                    <p>
-                        <strong>Phone:</strong>
-                        ${order.phone}
-                    </p>
-
-                    <p>
-                        <strong>Address:</strong>
-                        ${order.address}
-                    </p>
-                ` : ""}
-
-                <p>
-                    <strong>Status:</strong>
-                    <span class="order-status">
-                        ${order.status}
-                    </span>
-                </p>
-            </div>
-        `;
-    });
 }
 
 
-function showCategory(category) {
-    let categorySection =
-        document.getElementById("categorySection");
+function closeOrderForm() {
+    document.getElementById("orderForm").style.display = "none";
 
-    let categoryTitle =
-        document.getElementById("categoryTitle");
-
-    let categoryItems =
-        document.getElementById("categoryItems");
-
-    categoryTitle.innerText = category;
-
-    categoryItems.innerHTML = "";
-
-    categoryFoods[category].forEach(function(food) {
-        categoryItems.innerHTML += `
-            <div class="category-item">
-
-                <div>
-                    <p class="category-item-name">
-                        ${food.name}
-                    </p>
-
-                    <span class="category-item-price">
-                        ${food.price}
-                    </span>
-                </div>
-
-                <button
-                    class="custom-button"
-                    onclick="addToCart('${food.name}')">
-                    Add to Cart
-                </button>
-
-            </div>
-        `;
-    });
-
-    categorySection.style.display = "block";
-
-    categorySection.scrollIntoView({
-        behavior: "smooth"
-    });
+    document.getElementById("orderMessage").innerText = "";
 }
 
-
-function closeCategory() {
-    document.getElementById("categorySection").style.display = "none";
-}
-
-
-window.onclick = function(event) {
-
-    let orderForm =
-        document.getElementById("orderForm");
-
-    let cartModal =
-        document.getElementById("cartModal");
-
-    let myOrdersModal =
-        document.getElementById("myOrdersModal");
-
-    if (event.target === orderForm) {
-        closeOrderForm();
-    }
-
-    if (event.target === cartModal) {
-        closeCart();
-    }
-
-    if (event.target === myOrdersModal) {
-        closeMyOrders();
-    }
-};
 
 function showFoodItems() {
-    let category = document.getElementById("foodCategory").value;
-    let foodItem = document.getElementById("foodItem");
+    let category =
+        document.getElementById("foodCategory").value;
 
-    foodItem.innerHTML = '<option value="">Select Food Item</option>';
+    let foodItem =
+        document.getElementById("foodItem");
+
+    foodItem.innerHTML =
+        '<option value="">Select Food Item</option>';
 
     if (category === "") {
         foodItem.style.display = "none";
@@ -512,6 +327,7 @@ function showFoodItems() {
     }
 
     categoryFoods[category].forEach(function(food) {
+
         foodItem.innerHTML += `
             <option value="${food.name}">
                 ${food.name} - ${food.price}
@@ -522,27 +338,16 @@ function showFoodItems() {
     foodItem.style.display = "block";
 }
 
-function displayCheckoutOrder() {
-    let checkoutOrder = document.getElementById("checkoutOrder");
-
-    checkoutOrder.innerHTML = `
-        <h3>Your Order</h3>
-    `;
-
-    cart.forEach(function(item) {
-        checkoutOrder.innerHTML += `
-            <div class="checkout-order-item">
-                <span>${item.name}</span>
-                <span>× ${item.quantity}</span>
-            </div>
-        `;
-    });
-}
 
 function addDirectOrderItem() {
-    let category = document.getElementById("foodCategory").value;
-    let food = document.getElementById("foodItem").value;
-    let quantity = parseInt(document.getElementById("quantity").value);
+    let category =
+        document.getElementById("foodCategory").value;
+
+    let food =
+        document.getElementById("foodItem").value;
+
+    let quantity =
+        parseInt(document.getElementById("quantity").value);
 
     if (category === "" || food === "") {
         alert("Please select category and food item.");
@@ -581,7 +386,8 @@ function addDirectOrderItem() {
 
 
 function displayDirectOrderItems() {
-    let list = document.getElementById("directOrderList");
+    let list =
+        document.getElementById("directOrderList");
 
     if (directOrderItems.length === 0) {
         list.innerHTML = "";
@@ -595,15 +401,16 @@ function displayDirectOrderItems() {
         list.innerHTML += `
             <div class="direct-order-item">
 
-                <div>
-                    <span>${item.name}</span>
-                    <strong> × ${item.quantity}</strong>
-                </div>
+                <span>
+                    ${item.name} × ${item.quantity}
+                </span>
 
                 <button
                     type="button"
                     onclick="removeDirectOrderItem(${index})">
+
                     Remove
+
                 </button>
 
             </div>
@@ -617,3 +424,316 @@ function removeDirectOrderItem(index) {
 
     displayDirectOrderItems();
 }
+
+
+function showCartFoodItems() {
+    let category =
+        document.getElementById("cartFoodCategory").value;
+
+    let foodItem =
+        document.getElementById("cartFoodItem");
+
+    foodItem.innerHTML =
+        '<option value="">Select Food Item</option>';
+
+    if (category === "") {
+        foodItem.style.display = "none";
+        return;
+    }
+
+    categoryFoods[category].forEach(function(food) {
+
+        foodItem.innerHTML += `
+            <option value="${food.name}">
+                ${food.name} - ${food.price}
+            </option>
+        `;
+    });
+
+    foodItem.style.display = "block";
+}
+
+
+function addCartOrderItem() {
+    let category =
+        document.getElementById("cartFoodCategory").value;
+
+    let food =
+        document.getElementById("cartFoodItem").value;
+
+    let quantity =
+        parseInt(document.getElementById("cartQuantity").value);
+
+    if (category === "" || food === "") {
+        alert("Please select category and food item.");
+        return;
+    }
+
+    if (quantity < 1) {
+        alert("Quantity must be at least 1.");
+        return;
+    }
+
+    let existingItem = cart.find(function(item) {
+        return item.name === food;
+    });
+
+    if (existingItem) {
+        existingItem.quantity += quantity;
+    } else {
+        cart.push({
+            name: food,
+            quantity: quantity
+        });
+    }
+
+    updateCartCount();
+
+    displayCheckoutOrder();
+
+    document.getElementById("cartFoodCategory").value = "";
+
+    document.getElementById("cartFoodItem").innerHTML =
+        '<option value="">Select Food Item</option>';
+
+    document.getElementById("cartFoodItem").style.display = "none";
+
+    document.getElementById("cartQuantity").value = "1";
+}
+
+
+function displayCheckoutOrder() {
+    let checkoutOrder =
+        document.getElementById("checkoutOrder");
+
+    if (cart.length === 0) {
+        checkoutOrder.innerHTML = "";
+        return;
+    }
+
+    checkoutOrder.innerHTML = "<h3>Your Order</h3>";
+
+    cart.forEach(function(item, index) {
+
+        checkoutOrder.innerHTML += `
+            <div class="checkout-order-item">
+
+                <span>
+                    ${item.name} × ${item.quantity}
+                </span>
+
+                <button
+                    type="button"
+                    onclick="removeCheckoutItem(${index})">
+
+                    Remove
+
+                </button>
+
+            </div>
+        `;
+    });
+}
+
+
+function removeCheckoutItem(index) {
+    cart.splice(index, 1);
+
+    updateCartCount();
+
+    displayCheckoutOrder();
+
+    if (cart.length === 0) {
+        closeOrderForm();
+        openCart();
+    }
+}
+
+
+function placeOrder() {
+    let name =
+        document.getElementById("customerName").value.trim();
+
+    let phone =
+        document.getElementById("customerPhone").value.trim();
+
+    let address =
+        document.getElementById("customerAddress").value.trim();
+
+    if (name === "" || phone === "" || address === "") {
+
+        document.getElementById("orderMessage").style.color = "red";
+
+        document.getElementById("orderMessage").innerText =
+            "Please fill all the details.";
+
+        return;
+    }
+
+    let orderItems;
+
+    if (cart.length > 0) {
+
+        orderItems = cart.map(function(item) {
+            return item.name + " x " + item.quantity;
+        });
+
+    } else {
+
+        if (directOrderItems.length === 0) {
+
+            document.getElementById("orderMessage").style.color = "red";
+
+            document.getElementById("orderMessage").innerText =
+                "Please add at least one item.";
+
+            return;
+        }
+
+        orderItems = directOrderItems.map(function(item) {
+            return item.name + " x " + item.quantity;
+        });
+    }
+
+    let newOrder = {
+        id: orders.length + 1,
+        items: orderItems,
+        customer: name,
+        phone: phone,
+        address: address,
+        status: "Order Placed"
+    };
+
+    orders.push(newOrder);
+
+    cart = [];
+    directOrderItems = [];
+
+    updateCartCount();
+
+    document.getElementById("orderMessage").style.color = "green";
+
+    document.getElementById("orderMessage").innerText =
+        "Order Placed Successfully!";
+
+    setTimeout(function() {
+
+        closeOrderForm();
+
+        displayOrders();
+
+        document.getElementById("customerName").value = "";
+        document.getElementById("customerPhone").value = "";
+        document.getElementById("customerAddress").value = "";
+
+        document.getElementById("foodCategory").value = "";
+
+        document.getElementById("foodItem").innerHTML =
+            '<option value="">Select Food Item</option>';
+
+        document.getElementById("foodItem").style.display = "none";
+
+        document.getElementById("quantity").value = "1";
+
+        document.getElementById("cartFoodCategory").value = "";
+
+        document.getElementById("cartFoodItem").innerHTML =
+            '<option value="">Select Food Item</option>';
+
+        document.getElementById("cartFoodItem").style.display = "none";
+
+        document.getElementById("cartQuantity").value = "1";
+
+        document.getElementById("directOrderList").innerHTML = "";
+
+        document.getElementById("checkoutOrder").innerHTML = "";
+
+        document.getElementById("orderMessage").innerText = "";
+
+    }, 1500);
+}
+
+
+function openMyOrders() {
+    document.getElementById("myOrdersModal").style.display = "flex";
+
+    displayOrders();
+}
+
+
+function closeMyOrders() {
+    document.getElementById("myOrdersModal").style.display = "none";
+}
+
+
+function displayOrders() {
+    let ordersList =
+        document.getElementById("ordersList");
+
+    if (orders.length === 0) {
+
+        ordersList.innerHTML =
+            "<p>No orders placed yet.</p>";
+
+        return;
+    }
+
+    ordersList.innerHTML = "";
+
+    orders.forEach(function(order) {
+
+        ordersList.innerHTML += `
+            <div class="order-item">
+
+                <h5>
+                    Order #${order.id}
+                </h5>
+
+                <p>
+                    <strong>Items:</strong>
+                    ${order.items.join(", ")}
+                </p>
+
+                <p>
+                    <strong>Name:</strong>
+                    ${order.customer}
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    ${order.phone}
+                </p>
+
+                <p>
+                    <strong>Address:</strong>
+                    ${order.address}
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    <span class="order-status">
+                        ${order.status}
+                    </span>
+                </p>
+
+            </div>
+        `;
+    });
+}
+
+
+window.addEventListener("click", function(event) {
+
+    if (event.target === document.getElementById("cartModal")) {
+        closeCart();
+    }
+
+    if (event.target === document.getElementById("myOrdersModal")) {
+        closeMyOrders();
+    }
+
+    if (event.target === document.getElementById("orderForm")) {
+        closeOrderForm();
+    }
+
+});
