@@ -1,321 +1,315 @@
-@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-.food-munch-logo {
-  width: 80px;
-  height: 70px;
+html {
+    scroll-behavior: smooth;
 }
 
-#navItem1,
-#navItem2,
-#navItem3,
-#navItem4 {
-  color: #323f4b;
-  font-family: "Roboto";
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.food-munch-logo {
+    width: 80px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.navbar {
+    min-height: 80px;
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+.nav-link {
+    color: #323f4b !important;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cart-link {
+    position: relative;
+}
+
+#cartCount {
+    background-color: #d0b200;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 6px;
+    margin-left: 3px;
 }
 
 .banner-section-bg-container {
-  width: 100%;
-  height: 100vh;
-  background-image: url("Images/foodmunch-banner-bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    background-image: url("Images/foodmunch-banner-bg.png");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
 }
 
 .banner-heading {
-  color: white;
-  font-family: "Roboto";
-  font-size: 45px;
-  font-weight: 300;
+    color: white;
+    font-size: 45px;
+    font-weight: 300;
 }
 
 .banner-caption {
-  color: #f5f7fa;
-  font-family: "Roboto";
-  font-size: 24px;
-  font-weight: 300;
+    color: #f5f7fa;
+    font-size: 24px;
+    font-weight: 300;
 }
 
 .custom-button {
     display: inline-block;
-    text-align: center;
-    line-height: 45px;
-    text-decoration: none;
     color: white;
     background-image: linear-gradient(#d0b200, #a58d00);
     width: 130px;
-    height: 45px;
-    border-width: 0;
+    min-height: 45px;
+    border: none;
     border-radius: 8px;
     margin-right: 10px;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.custom-button:hover {
+    color: white;
+    text-decoration: none;
 }
 
 .custom-outline-button {
-  color: #d0b200;
-  background-color: transparent;
-  width: 130px;
-  height: 45px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #d0b200;
-  border-radius: 8px;
+    color: #d0b200;
+    background-color: transparent;
+    width: 130px;
+    height: 45px;
+    border: 1px solid #d0b200;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .wcu-section {
-  background-color: #f9fbfe;
+    background-color: #f9fbfe;
 }
 
-.wcu-section-heading {
-  color: #183b56;
-  font-family: "Roboto";
-  font-size: 28px;
-  font-weight: 700;
+.wcu-section-heading,
+.menu-section-heading,
+.healthy-food-section-heading,
+.delivery-and-payment-section-heading,
+.thanking-customers-section-heading {
+    color: #183b56;
+    font-size: 28px;
+    font-weight: 700;
 }
 
-.wcu-section-description {
-  color: #5a7184;
-  font-family: "Roboto";
-  font-size: 16px;
+.wcu-section-description,
+.healthy-food-section-description,
+.delivery-and-payment-section-description,
+.thanking-customers-section-description {
+    color: #5a7184;
+    font-size: 16px;
 }
 
 .wcu-card {
-  text-align: center;
-  background-color: white;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #e5eaf4;
-  border-radius: 16px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #e5eaf4;
+    border-radius: 16px;
 }
 
 .wcu-card-image {
-  width: 87px;
-  height: 90px;
+    width: 87px;
+    height: 90px;
+    object-fit: contain;
 }
 
 .wcu-card-title {
-  color: #323f4b;
-  font-family: "Roboto";
-  font-size: 22px;
-  font-weight: 500;
+    color: #323f4b;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 15px;
 }
 
 .wcu-card-description {
-  color: #7b8794;
-  font-family: "Roboto";
-  font-size: 16px;
+    color: #7b8794;
+    font-size: 16px;
 }
 
 .offers {
-  color: #323f4b;
-  font-style: italic;
-  font-weight: 600;
+    color: #323f4b;
+    font-style: italic;
+    font-weight: 600;
 }
 
 .explore-menu-section {
-  background-color: white;
-}
-
-.menu-section-heading {
-  color: #183b56;
-  font-family: "Roboto";
-  font-size: 28px;
-  font-weight: 700;
+    background-color: white;
 }
 
 .menu-item-card {
-  background-color: white;
-  border-radius: 16px;
+    border-radius: 16px;
+    background-color: white;
 }
 
 .menu-item-image {
-  width: 100%;
-  border-radius: 16px;
+    border-radius: 16px;
+    max-width: 100%;
 }
 
 .menu-card-title {
-  color: #323f4b;
-  font-family: "Roboto";
-  font-size: 18px;
-  font-weight: 500;
-  margin-top: 24px;
+    color: #323f4b;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 24px;
 }
 
 .menu-item-link {
-  color: #d0b200;
-  font-family: "Roboto";
-  font-size: 14px;
-  font-weight: 500;
+    color: #d0b200;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .healthy-food-section {
-  background-color: #f9fbfe;
+    background-color: #f9fbfe;
 }
 
 .healthy-food-section-img {
-  width: 270px;
-  max-width: 100%;
-}
-
-.healthy-food-section-heading {
-  color: #183b56;
-  font-family: "Roboto";
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.healthy-food-section-description {
-  color: #5a7184;
-  font-family: "Roboto";
-  font-size: 16px;
+    width: 270px;
+    max-width: 100%;
 }
 
 .delivery-and-payment-section {
-  background-color: white;
+    background-color: white;
 }
 
 .delivery-and-payment-section-img {
-  width: 270px;
-  max-width: 100%;
-}
-
-.delivery-and-payment-section-heading {
-  color: #183b56;
-  font-family: "Roboto";
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.delivery-and-payment-section-description {
-  color: #5a7184;
-  font-family: "Roboto";
-  font-size: 16px;
+    width: 270px;
+    max-width: 100%;
 }
 
 .payment-card-img {
-  width: 50px;
-  height: 50px;
-  margin-right: 28px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 20px;
 }
 
 .thanking-customers-section {
-  background-image: radial-gradient(#fff8db, #fae38c);
-}
-
-.thanking-customers-section-heading {
-  color: #183b56;
-  font-family: "Roboto";
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.thanking-customers-section-description {
-  color: #5a7184;
-  font-family: "Roboto";
-  font-size: 16px;
+    background-image: radial-gradient(#fff8db, #fae38c);
 }
 
 .thanking-customers-section-img {
-  width: 270px;
-  max-width: 100%;
-  margin-bottom: 20px;
+    width: 270px;
+    max-width: 100%;
 }
 
 .thanking-customers-section-modal-title {
-  color: #d0b200;
-  font-weight: 800;
+    color: #d0b200;
+    font-weight: 800;
 }
 
 .follow-us-section {
-  background-color: white;
+    background-color: white;
 }
 
 .follow-us-section-heading {
-  text-align: center;
-  color: #183b56;
-  font-family: "Roboto";
-  font-size: 28px;
-  font-weight: 700;
+    text-align: center;
+    color: #183b56;
+    font-size: 28px;
+    font-weight: 700;
 }
 
 .follow-us-icon-container {
-  background-color: #faf7e8;
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  margin: 15px;
-  padding-top: 22px;
-  padding-bottom: 14px;
-  padding-right: 16px;
-  padding-left: 22px;
+    background-color: #faf7e8;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon {
-  color: #d0b200;
-  font-size: 35px;
+    color: #d0b200;
+    font-size: 35px;
 }
 
 .footer-section {
-  background-color: #0d2436;
+    background-color: #0d2436;
 }
 
 .footer-section-mail-id {
-  color: #959ead;
-  font-family: "Roboto";
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 20px;
+    color: #959ead;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
 }
 
 .footer-section-address {
-  color: #959ead;
-  font-family: "Roboto";
-  font-size: 14px;
+    color: #959ead;
+    font-size: 14px;
 }
 
-@media screen and (max-width: 767px) {
-  .banner-section-bg-container {
-    height: 100vh;
-    min-height: 600px;
-  }
+.category-section {
+    display: none;
+    position: relative;
+    background-color: #f9fbfe;
+    padding: 40px 0;
+}
 
-  .banner-heading {
-    font-size: 36px;
-  }
+.category-section.show {
+    display: block;
+}
 
-  .banner-caption {
-    font-size: 20px;
-  }
+.category-section h2 {
+    color: #183b56;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
 
-  .custom-button,
-  .custom-outline-button {
+.close-category {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.category-item {
+    background-color: white;
+    border: 1px solid #e5eaf4;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.category-item-name {
+    color: #323f4b;
+    font-size: 18px;
+    margin: 0;
+}
+
+.category-item-price {
+    color: #d0b200;
+    font-weight: bold;
+    margin: 5px 0 0;
+}
+
+.category-add-button {
     width: 120px;
-    height: 42px;
-  }
-
-  .healthy-food-section-img,
-  .delivery-and-payment-section-img,
-  .thanking-customers-section-img {
-    width: 230px;
-  }
-
-  .payment-card-img {
-    width: 45px;
-    height: 45px;
-    margin-right: 12px;
-  }
-
-  .follow-us-icon-container {
-    width: 65px;
-    height: 65px;
-    border-radius: 33px;
-    margin: 8px;
-    padding-top: 17px;
-    padding-left: 17px;
-  }
-
-  .icon {
-    font-size: 28px;
-  }
+    margin: 0;
 }
 
 .order-form-overlay {
@@ -326,7 +320,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.65);
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -347,25 +341,31 @@
 
 .order-form h2 {
     color: #183b56;
-    font-family: "Roboto";
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 34px;
 }
 
 .order-form input,
 .order-form textarea,
 .order-form select {
     width: 100%;
-    padding: 12px;
+    padding: 13px;
     margin-bottom: 15px;
     border: 1px solid #d5d5d5;
     border-radius: 8px;
-    font-family: "Roboto";
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: white;
 }
 
 .order-form textarea {
     height: 80px;
     resize: none;
+}
+
+.order-form select {
+    cursor: pointer;
 }
 
 .close-order {
@@ -376,120 +376,62 @@
     background: transparent;
     font-size: 28px;
     cursor: pointer;
+    color: #111;
 }
 
 .order-submit-button {
     width: 100%;
-    margin-top: 5px;
+    margin: 10px 0 0;
 }
 
-#orderMessage {
-    text-align: center;
-    color: green;
-    font-weight: bold;
+.add-item-button {
+    width: 100%;
+    margin: 0 0 15px;
+}
+
+#cartAddItemSection {
+    display: none;
+}
+
+#directOrderList,
+#checkoutOrder {
     margin-top: 15px;
+    margin-bottom: 20px;
 }
 
-.cart-link {
-    position: relative;
+#directOrderList h3,
+#checkoutOrder h3 {
+    color: #183b56;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
-#cartCount {
-    background-color: #d0b200;
-    color: white;
-    font-size: 11px;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 3px 6px;
-    margin-left: 3px;
-}
-
-.cart-item {
+.direct-order-item,
+.checkout-order-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    gap: 10px;
+    padding: 12px 5px;
     border-bottom: 1px solid #ddd;
+    color: #323f4b;
 }
 
-.cart-item button {
+.direct-order-item button,
+.checkout-order-item button {
     border: none;
     background-color: #dc3545;
     color: white;
-    padding: 5px 10px;
+    padding: 7px 10px;
     border-radius: 5px;
-}
-
-.order-item {
-    background-color: #f9fbfe;
-    border: 1px solid #e5eaf4;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-.order-item h5 {
-    color: #183b56;
-}
-
-.order-status {
-    color: green;
-    font-weight: bold;
-}
-
-.category-section {
-    display: none;
-    background-color: #f9fbfe;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.category-section h2 {
-    color: #183b56;
-    font-family: "Roboto";
-    font-size: 30px;
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-
-.category-item {
-    background-color: white;
-    border: 1px solid #e5eaf4;
-    border-radius: 12px;
-    padding: 15px 20px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.category-item-name {
-    color: #323f4b;
-    font-family: "Roboto";
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0;
-}
-
-.category-item-price {
-    color: #d0b200;
-    font-weight: bold;
-    margin-left: 15px;
-}
-
-.close-category {
-    float: right;
-    border: none;
-    background: transparent;
-    font-size: 30px;
     cursor: pointer;
-    color: #323f4b;
 }
 
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     padding: 14px 0;
     border-bottom: 1px solid #ddd;
 }
@@ -517,7 +459,7 @@
     height: 32px;
     border: none;
     border-radius: 5px;
-    background-color: #d0b200;
+    background-color: #dc3545;
     color: white;
     font-size: 20px;
     cursor: pointer;
@@ -538,68 +480,39 @@
     cursor: pointer;
 }
 
-#checkoutOrder {
-    display: none;
-    margin-top: 15px;
-    margin-bottom: 20px;
-}
-
-#checkoutOrder h3 {
-    color: #183b56;
-    font-family: "Roboto";
-    font-size: 20px;
-    margin-bottom: 12px;
-}
-
-.checkout-order-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 5px;
-    border-bottom: 1px solid #ddd;
-    color: #323f4b;
-    font-family: "Roboto";
-    font-size: 16px;
-}
-
-.add-item-button {
-    width: 100%;
-    margin-top: 5px;
+.order-item {
+    background-color: #f9fbfe;
+    border: 1px solid #e5eaf4;
+    border-radius: 10px;
+    padding: 15px;
     margin-bottom: 15px;
 }
 
-#directOrderList {
-    margin-top: 15px;
-    margin-bottom: 20px;
-}
-
-#directOrderList h3 {
+.order-item h5 {
     color: #183b56;
-    font-family: "Roboto";
-    font-size: 20px;
-    margin-bottom: 10px;
 }
 
-.direct-order-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 5px;
-    border-bottom: 1px solid #ddd;
-    color: #323f4b;
-    font-family: "Roboto";
+.order-status {
+    color: green;
+    font-weight: bold;
 }
 
-.direct-order-item button {
-    border: none;
-    background-color: #dc3545;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+#orderMessage {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 @media (max-width: 600px) {
+
+    .banner-heading {
+        font-size: 34px;
+    }
+
+    .banner-caption {
+        font-size: 20px;
+    }
+
     .order-form-overlay {
         padding: 10px;
         align-items: flex-start;
@@ -610,5 +523,32 @@
         max-height: 95vh;
         margin-top: 10px;
         padding: 25px 20px;
+    }
+
+    .order-form h2 {
+        font-size: 28px;
+    }
+
+    .cart-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .cart-controls {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .category-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .category-add-button {
+        width: 100%;
+    }
+
+    .payment-card-img {
+        margin-right: 8px;
     }
 }
